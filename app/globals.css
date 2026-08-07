@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-hairline;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis owns smooth scrolling; native stays off */
+    scroll-padding-top: 6rem; /* fallback for any anchor without its own scroll-mt-* */
+  }
+
+  body {
+    @apply bg-ivory text-ink font-sans text-body antialiased;
+    font-feature-settings: "ss01" 1, "cv01" 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-gold/25 text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.gold.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Utility label pattern: eyebrows, stat labels, nav meta */
+  .u-eyebrow {
+    @apply font-mono text-eyebrow uppercase tracking-[0.14em] text-ink-soft;
+  }
+
+  /* Visible only when focused — lets keyboard users skip the nav and
+     land straight on page content. See layout.tsx for placement. */
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded bg-ink px-5 py-3 font-mono text-caption uppercase tracking-[0.1em] text-ivory transition-transform duration-300 ease-signature focus:translate-y-0;
+  }
+
+  /* The Current — Voltheris' signature hairline gold stroke.
+     Applied to underlines, connective lines between sections/timeline
+     nodes, and workflow-diagram paths. Always thin (1–1.5px), always
+     gold, always animated with the `signature` easing curve.
+     See DESIGN_SYSTEM.md → "Signature element". */
+  .the-current {
+    stroke: theme("colors.gold.DEFAULT");
+    stroke-width: 1.5;
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-shell px-gutter;
+  }
+
+  .container-content {
+    @apply mx-auto w-full max-w-content px-gutter;
+  }
+}
