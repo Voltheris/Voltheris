@@ -16,7 +16,7 @@ interface Submission {
   receivedAt: string;
 }
 
-const TRACKED_PATHS = ["/", "/services", "/solutions", "/portfolio", "/about", "/insights", "/contact"];
+const TRACKED_PATHS = ["/", "/services", "/solutions", "/about", "/insights", "/contact"];
 
 async function getSubmissions(): Promise<Submission[]> {
   if (!redis) return [];

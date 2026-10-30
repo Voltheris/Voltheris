@@ -65,8 +65,8 @@ export default function ServicesPage() {
         actions={
           <>
             <Button href="/contact">Book a consultation</Button>
-            <Button href="/portfolio" variant="ghost">
-              See results
+            <Button href="/about" variant="ghost">
+              About Voltheris
             </Button>
           </>
         }

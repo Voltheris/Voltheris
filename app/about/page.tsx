@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { MissionVision } from "@/components/sections/MissionVision";
 import { Philosophy } from "@/components/sections/Philosophy";
-import { CompanyTimeline } from "@/components/sections/CompanyTimeline";
 import { FounderStory } from "@/components/sections/FounderStory";
 import { CTABand } from "@/components/sections/CTABand";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -14,7 +13,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Voltheris' mission, vision, values, and founding story — an AI automation company built on the idea that the best systems are the quietest.",
+    "Voltheris' mission, vision, values, and founding story — a newly founded AI automation consultancy built on the idea that the best systems are the quietest.",
   alternates: {
     canonical: "/about",
   },
@@ -28,12 +27,12 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         heading="Built on the idea that the best systems are the quietest."
-        description="Voltheris started as a two-person consultancy solving one client's intake problem by hand. Six years later, the underlying belief hasn't changed — automation should disappear into the business, not announce itself."
+        description="Voltheris is a newly founded automation consultancy — launched in 2026, led directly by its founder. That's by design, not a gap to apologize for: every early engagement gets hands-on attention from the person who built the system, not a handoff down an account team."
         actions={
           <>
-            <Button href="/portfolio">See the results</Button>
-            <Button href="/contact" variant="ghost">
-              Book a consultation
+            <Button href="/contact">Book a consultation</Button>
+            <Button href="/services" variant="ghost">
+              See what we build
             </Button>
           </>
         }
@@ -43,8 +42,6 @@ export default function AboutPage() {
 
       <Philosophy />
 
-      <CompanyTimeline />
-
       <FounderStory />
 
       <section className="bg-ivory py-section-y">
@@ -52,7 +49,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="Values"
             heading="Four principles, held on every engagement."
-            description="Tap any of these to see what it looks like in an actual client system, not just on a wall."
+            description="Tap any of these to see what it looks like in practice — not just as a line on a wall."
           />
           <div className="mt-14">
             <ValuesGrid values={values} />

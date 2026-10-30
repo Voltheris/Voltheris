@@ -94,8 +94,64 @@ No environment variables are required for this project.
 15. ~~Pricing section redesign~~
 16. ~~Pricing text reduction + shared-info consolidation~~
 17. ~~Brutal-critique pass — nav accessibility, CTA consistency, price floor~~
-18. ~~Pricing perfected to exact client spec~~ ← this stage
-19. Remaining shared component — comparison table
+18. ~~Pricing perfected to exact client spec~~
+19. ~~Content-authenticity pass — real founder story, Portfolio removed~~ ← this stage
+20. Remaining shared component — comparison table
+
+## Content-authenticity pass (round 5)
+
+Voltheris is a real, newly founded company — launched in 2026, solo-led,
+with no clients yet. Earlier rounds filled the site with illustrative
+placeholder content (a fictional founder, a six-year company history,
+fabricated case studies with named testimonials, invented performance
+statistics) that was clearly flagged as placeholder but never replaced.
+This round removes all of it rather than continuing to flag it:
+
+- **Real founder story.** `content/founder.ts` now tells Marleigh
+  Hicks' actual story: Founder & CEO, previously ran social media for
+  Beacon Auto Repair, started Voltheris in 2026 after repeatedly
+  watching small businesses lose leads to slow response times and
+  duplicate CRM contacts. The monogram treatment (now "MH") stays —
+  no photo needed yet, per your call.
+- **About page rewritten honestly.** Dropped the false "two-person
+  consultancy, six years ago" hero claim and the fabricated
+  2019–2025 company timeline (`CompanyTimeline` component and
+  `content/timeline.ts` are removed outright, not just disabled).
+  The new hero copy is openly transparent about being newly founded
+  and solo-led — framed as direct founder attention on every
+  engagement, not an apology. This is a deliberate choice: being
+  upfront about being new reads as more trustworthy than silently
+  deleting the claims and leaving a vague gap.
+- **Portfolio section removed sitewide**, not just flagged — there's
+  no real case-study material yet to put in its place. Removed:
+  `/portfolio` and `/portfolio/[slug]` routes, `content/caseStudies.ts`,
+  `CaseStudyCard`, `FeaturedCaseStudy`, `PortfolioPreview`,
+  `BeforeAfter`, `CaseTimeline`, and `TestimonialCard` (the
+  fake-named-testimonial component). Nav, sitemap, the homepage, the
+  Services and About page CTAs, and the admin analytics tracked-paths
+  list are all updated to no longer reference it.
+- **Fabricated results statistics removed.** The homepage `StatsBand`
+  (and its backing `content/stats.ts`) depended on the deleted case
+  studies for its headline numbers, so it's removed rather than
+  patched. On `/solutions`, each industry's animated "58% more
+  showings booked"-style result metrics (which implied measured
+  client outcomes that don't exist) are replaced with plain
+  capability statements — what the system is built to do, not a
+  claimed result.
+- **Insights blog cleaned up.** Author byline changed from the
+  placeholder "Julian Marsh" to Marleigh Hicks across all posts.
+  Replaced the one post built entirely around a fabricated track
+  record ("What 40 Deployments Taught Us") with an honest piece
+  tied to the real founding story. Softened a few lines elsewhere
+  that implied a multi-year client history (e.g., "when we review
+  an underperforming engagement") into forward-looking statements of
+  practice instead of claimed history, and moved every publish date
+  into 2026 so nothing predates the company's actual founding.
+- **Values section** on the About page keeps the same four values
+  (Precision, Trust, Partnership, Momentum) — you said those were
+  fine — but the "in practice" examples no longer reference specific
+  client engagements that haven't happened yet; they describe
+  standing commitments instead.
 
 ## Pricing perfected to exact spec (round 4)
 

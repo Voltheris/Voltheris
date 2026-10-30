@@ -4,8 +4,6 @@ import { WhyVoltheris } from "@/components/sections/WhyVoltheris";
 import { TrustSignals } from "@/components/sections/TrustSignals";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { ProcessCurrent } from "@/components/sections/ProcessCurrent";
-import { StatsBand } from "@/components/sections/StatsBand";
-import { PortfolioPreview } from "@/components/sections/PortfolioPreview";
 import { CTABand } from "@/components/sections/CTABand";
 
 export const metadata: Metadata = {
@@ -22,8 +20,6 @@ export default function Home() {
       <TrustSignals />
       <ServicesPreview />
       <ProcessCurrent />
-      <StatsBand />
-      <PortfolioPreview />
       <CTABand />
     </main>
   );

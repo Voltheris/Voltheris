@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import type { Industry } from "@/content/industries";
+import { TbCheck } from "react-icons/tb";
 import { Icon } from "@/components/ui/Icon";
 import { WorkflowDiagram } from "@/components/ui/WorkflowDiagram";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { Button } from "@/components/ui/Button";
 import { fadeUp, fadeUpLarge, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -54,14 +54,12 @@ export function IndustrySection({ industry, reverse = false, tone = "ivory" }: I
 
             <motion.div
               variants={fadeUp}
-              className="mt-9 flex flex-wrap gap-10 border-y border-hairline py-6"
+              className="mt-9 flex flex-col gap-3 border-y border-hairline py-6"
             >
-              {industry.stats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-mono text-display-m text-gold-text">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="mt-1 max-w-[20ch] text-caption text-ink-faint">{stat.label}</p>
+              {industry.capabilities.map((capability) => (
+                <div key={capability} className="flex items-start gap-3">
+                  <TbCheck className="mt-0.5 shrink-0 text-lg text-gold-text" aria-hidden="true" />
+                  <p className="max-w-[36ch] text-body-s text-ink-soft">{capability}</p>
                 </div>
               ))}
             </motion.div>
